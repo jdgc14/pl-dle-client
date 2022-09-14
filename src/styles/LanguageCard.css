@@ -4,7 +4,8 @@
     border: 1px solid white;
     box-shadow: inset 0 0 2px 2px black;
     font-weight: bold;
-    -webkit-text-stroke: 0.4px black;
+    /* -webkit-text-stroke: 0.2px white; */
+    color: black;
 }
 
 .bg-wrong {
