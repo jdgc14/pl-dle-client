@@ -1,42 +1,12 @@
 import React from 'react'
 import '../styles/LanguageCard.css'
+import {
+    validateSingleValue,
+    validateReleaseYear,
+    validateArrayValues,
+} from '../utils/validations.utils'
 
 const LanguageCard = ({ languageSelectByUser, languageRandom }) => {
-    const validateSingleValue = (valueToFind, valueSelected) => {
-        return valueToFind === valueSelected
-    }
-
-    const validateReleaseYear = (valueToFind, valueSelected) => {
-        if (valueToFind < valueSelected) {
-            return 'minus'
-        } else if (valueToFind > valueSelected) {
-            return 'more'
-        }
-        return true
-    }
-
-    const validateArrayValues = (arrayToFind, arraySelected) => {
-        let coincidences = 0
-
-        const validateCharacteristics = (item) => {
-            if (arraySelected.includes(item)) {
-                coincidences++
-            }
-        }
-
-        arrayToFind?.forEach(validateCharacteristics)
-
-        if (coincidences === arraySelected?.length) {
-            return true
-        }
-
-        if (!coincidences) {
-            return false
-        }
-
-        return coincidences
-    }
-
     const validations = {
         plataform: validateSingleValue(
             languageRandom.plataform,
@@ -65,7 +35,7 @@ const LanguageCard = ({ languageSelectByUser, languageRandom }) => {
     }
 
     return (
-        <div className="d-flex col-11 mt-5 gap-2 mx-auto">
+        <div className="d-flex mt-5 gap-2 mx-auto border-dark border-bottom border-3 border-opacity-75 p-3 ">
             <section className="col-3 col-md-1 my-auto">
                 <img
                     src={languageSelectByUser.img}

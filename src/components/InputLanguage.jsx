@@ -25,10 +25,11 @@ const InputLanguage = ({ programmingLanguages, addLanguage }) => {
         setIsErrorInput(false)
 
         addLanguage(language)
+
         setLanguageInput('')
     }
     return (
-        <form onSubmit={submit} className="d-flex col-6 col-md-4 mx-auto my-5">
+        <form onSubmit={submit} className="d-flex col-6 col-md-4 mx-auto my-3">
             <input
                 type="text"
                 value={languageInput}
