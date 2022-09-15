@@ -3,24 +3,24 @@ import '../styles/Header.css'
 
 const Header = () => {
     return (
-        <div className="">
+        <div className="text-center mb-5">
             <div className="col-10 col-md-4 m-auto">
-                <img src={''} className="logo" />
-            </div>
-            <div
-                className="position-fixed d-flex flex-column gap-3"
-                style={{
-                    right: '5%',
-                    top: '65px',
-                    zIndex: '1',
-                }}
-            >
-                <button className="btn btn-link p-0">
-                    <i className="fa-solid fa-house button-home"></i>
-                </button>
-                <button className="btn btn-link p-0">
-                    <i className="fa-solid fa-star button-home"></i>
-                </button>
+                <h2 className="fw-bold">PLdle</h2>
+                <img
+                    src="https://programaenlinea.net/wp-content/uploads/2018/12/lenguajes-de-programacion-1.png"
+                    // src="https://c.tenor.com/a-TsAtfszc8AAAAC/homer-any.gif"
+                    className="logo"
+                />
+                {/* <h5>Guess programming language</h5> */}
+                {/* To Do: aply scss animations*/}
+                {/* <div class="container">
+                    <div class="glitch" data-text="ELISABÉTH">
+                        ELISABÉTH
+                    </div>
+                    <div class="glow">ELISABÉTH</div>
+                    <p class="subtitle">IMPRACTICAL DEVELOPER</p>
+                </div>
+                <div class="scanlines"></div> */}
             </div>
         </div>
     )

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import ColorsIndicator from './ColorsIndicator'
 import InputLanguage from './InputLanguage'
 import LanguageCard from './LanguageCard'
@@ -20,8 +19,6 @@ const Home = () => {
         selectRandomLanguage(programmingLanguages)
     }, [])
 
-    const navigate = useNavigate()
-
     const [languagesAnswers, setLanguagesAnswers] = useState([])
 
     const addLanguage = (language) => {
@@ -38,19 +35,34 @@ const Home = () => {
 
     return (
         <div className="text-center" style={{ minHeight: '80vh' }}>
+            <div
+                className="position-fixed d-flex flex-column gap-3"
+                style={{
+                    right: '5%',
+                    top: '65px',
+                    zIndex: '1',
+                }}
+            >
+                <button className="btn btn-link p-0">
+                    <i class="fa-solid fa-repeat button-home"></i>
+                </button>
+            </div>
+            <h4>Guess programming language.</h4>
             {languagesAnswers.length === 0 && (
-                <h2>Type a programming languages to begin.</h2>
+                <h2>Type a programming language to begin.</h2>
             )}
+
             {isCompleted ? (
                 <CongratulationsPage />
             ) : (
-                <>
-                    <InputLanguage
-                        programmingLanguages={programmingLanguages}
-                        addLanguage={addLanguage}
-                    />
-                    <ColorsIndicator />
-                </>
+                <InputLanguage
+                    programmingLanguages={programmingLanguages}
+                    addLanguage={addLanguage}
+                />
+            )}
+
+            {languagesAnswers.length !== 0 && !isCompleted && (
+                <ColorsIndicator />
             )}
 
             <div
@@ -66,21 +78,6 @@ const Home = () => {
                     </div>
                 ))}
             </div>
-            {/* <div className="d-flex justify-content-center p-5">
-                {programmingLanguages.map((language) => (
-                    <div key={language.name} className="col-1 text-center">
-                        <h6>{language.name}</h6>
-                        <img
-                            src={language.img}
-                            style={{
-                                width: '70px',
-                                height: '80px',
-                                objectFit: 'contain',
-                            }}
-                        />
-                    </div>
-                ))}
-            </div> */}
         </div>
     )
 }
