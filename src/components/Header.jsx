@@ -13,14 +13,14 @@ const Header = () => {
                 />
                 {/* <h5>Guess programming language</h5> */}
                 {/* To Do: aply scss animations*/}
-                {/* <div class="container">
-                    <div class="glitch" data-text="ELISABÉTH">
+                {/* <div className="container">
+                    <div className="glitch" data-text="ELISABÉTH">
                         ELISABÉTH
                     </div>
-                    <div class="glow">ELISABÉTH</div>
-                    <p class="subtitle">IMPRACTICAL DEVELOPER</p>
+                    <div className="glow">ELISABÉTH</div>
+                    <p className="subtitle">IMPRACTICAL DEVELOPER</p>
                 </div>
-                <div class="scanlines"></div> */}
+                <div className="scanlines"></div> */}
             </div>
         </div>
     )

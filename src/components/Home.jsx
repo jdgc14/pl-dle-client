@@ -6,21 +6,31 @@ import programmingLanguages from '../../programmingLanguages'
 import CongratulationsPage from './CongratulationsPage'
 
 const Home = () => {
+    // This useState use slice method to get a copy of a array and not a referency
+    const [programmingLanguagesData, setProgrammingLanguagesData] = useState(
+        programmingLanguages.slice()
+    )
+
+    // To save a language to guess
     const [languageRandom, setLanguageRandom] = useState({})
 
+    // Validate if game is over
     const [isCompleted, setIsCompleted] = useState(false)
+
+    // To save a languages selected by user
+    const [languagesAnswers, setLanguagesAnswers] = useState([])
+
+    // Generate a random language to guess
+    useEffect(() => {
+        selectRandomLanguage(programmingLanguagesData)
+    }, [])
 
     const selectRandomLanguage = (arrayLanguages) => {
         const randomIndex = Math.floor(Math.random() * arrayLanguages.length)
         setLanguageRandom(arrayLanguages[randomIndex])
     }
 
-    useEffect(() => {
-        selectRandomLanguage(programmingLanguages)
-    }, [])
-
-    const [languagesAnswers, setLanguagesAnswers] = useState([])
-
+    // Add language to array of answers, in custom order (reverse)
     const addLanguage = (language) => {
         setLanguagesAnswers([language, ...languagesAnswers])
 
@@ -33,6 +43,14 @@ const Home = () => {
         }
     }
 
+    // To reset all values necessary to play again
+    const restartGame = () => {
+        setIsCompleted(false)
+        setLanguagesAnswers([])
+        setProgrammingLanguagesData(programmingLanguages.slice())
+        selectRandomLanguage(programmingLanguagesData)
+    }
+
     return (
         <div className="text-center" style={{ minHeight: '80vh' }}>
             <div
@@ -43,8 +61,8 @@ const Home = () => {
                     zIndex: '1',
                 }}
             >
-                <button className="btn btn-link p-0">
-                    <i class="fa-solid fa-repeat button-home"></i>
+                <button onClick={restartGame} className="btn btn-link p-0">
+                    <i className="fa-solid fa-repeat button-home"></i>
                 </button>
             </div>
             <h4>Guess programming language.</h4>
@@ -56,7 +74,7 @@ const Home = () => {
                 <CongratulationsPage />
             ) : (
                 <InputLanguage
-                    programmingLanguages={programmingLanguages}
+                    programmingLanguagesData={programmingLanguagesData}
                     addLanguage={addLanguage}
                 />
             )}
