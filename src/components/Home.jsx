@@ -1,19 +1,12 @@
-import React from 'react'
-import { useEffect } from 'react'
-import { useState } from 'react'
-import programmingLanguages from '../../programmingLanguages'
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import ColorsIndicator from './ColorsIndicator'
 import InputLanguage from './InputLanguage'
 import LanguageCard from './LanguageCard'
+import programmingLanguages from '../../programmingLanguages'
 
 const Home = () => {
     const [languageRandom, setLanguageRandom] = useState({})
-
-    const [languagesAnswers, setLanguagesAnswers] = useState([])
-
-    const addLanguage = (language) => {
-        setLanguagesAnswers([language, ...languagesAnswers])
-    }
 
     const selectRandomLanguage = (arrayLanguages) => {
         const randomIndex = Math.floor(Math.random() * arrayLanguages.length)
@@ -24,9 +17,48 @@ const Home = () => {
         selectRandomLanguage(programmingLanguages)
     }, [])
 
+    const navigate = useNavigate()
+
+    const [languagesAnswers, setLanguagesAnswers] = useState([])
+
+    const addLanguage = (language) => {
+        setLanguagesAnswers([language, ...languagesAnswers])
+
+        checkLanguageIsFound(language, languageRandom)
+    }
+
+    const checkLanguageIsFound = (language, languageRandom) => {
+        if (language.name === languageRandom.name) {
+            navigate('/congratulations')
+        }
+    }
+
     return (
-        <div className="text-center" style={{ minHeight: '80vh' }}>
-            <div className="d-flex justify-content-center">
+        <div className="container text-center" style={{ minHeight: '80vh' }}>
+            {languagesAnswers.length === 0 && (
+                <h2>Type a programming languages to begin.</h2>
+            )}
+
+            <InputLanguage
+                programmingLanguages={programmingLanguages}
+                addLanguage={addLanguage}
+            />
+            <ColorsIndicator />
+
+            <div
+                className="bg-black bg-opacity-50 col-11 mx-auto rounded"
+                style={{ minHeight: '50vh' }}
+            >
+                {languagesAnswers.map((language) => (
+                    <div key={language.name}>
+                        <LanguageCard
+                            languageSelectByUser={language}
+                            languageRandom={languageRandom}
+                        />
+                    </div>
+                ))}
+            </div>
+            {/* <div className="d-flex justify-content-center p-5">
                 {programmingLanguages.map((language) => (
                     <div key={language.name} className="col-1 text-center">
                         <h6>{language.name}</h6>
@@ -40,28 +72,7 @@ const Home = () => {
                         />
                     </div>
                 ))}
-            </div>
-            {languagesAnswers.length === 0 && (
-                <h2>Type a programming languages to begin.</h2>
-            )}
-
-            <InputLanguage
-                programmingLanguages={programmingLanguages}
-                addLanguage={addLanguage}
-            />
-            <ColorsIndicator />
-            {/* <LanguageCard
-                languageRandom={languageRandom}
-                languageSelectByUser={languageRandom}
-            /> */}
-            {languagesAnswers.map((language) => (
-                <div key={language.name}>
-                    <LanguageCard
-                        languageSelectByUser={language}
-                        languageRandom={languageRandom}
-                    />
-                </div>
-            ))}
+            </div> */}
         </div>
     )
 }
