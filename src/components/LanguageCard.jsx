@@ -2,6 +2,8 @@ import React from 'react'
 import '../styles/LanguageCard.css'
 
 const LanguageCard = ({ languageToSearch }) => {
+    const validate = () => {}
+
     return (
         <div className="d-flex col-11 mt-5 gap-2 mx-auto scroll">
             <section className="col-3 col-md-1 my-auto">

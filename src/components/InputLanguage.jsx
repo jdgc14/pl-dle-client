@@ -11,14 +11,25 @@ const InputLanguage = ({
 
     const submit = (e) => {
         e.preventDefault()
-        const language = programmingLanguages.find(
-            (language) => language.name === languageInput
+
+        const languageIndex = programmingLanguages.indexOf(
+            programmingLanguages.find(
+                (language) => language.name === languageInput
+            )
         )
+
+        const language = programmingLanguages[languageIndex]
+
         if (!language) {
             return setIsErrorInput(true)
         }
+
+        programmingLanguages.splice(languageIndex, 1)
+
         setIsErrorInput(false)
+
         setLanguageSelected(language)
+
         addLanguage(language)
     }
     return (

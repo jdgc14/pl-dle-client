@@ -45,12 +45,11 @@ const Home = () => {
                 addLanguage={addLanguage}
             />
             <LanguageCard languageToSearch={languageToSearch} />
-            <LanguageCard languageToSearch={languageSelected} />
-            {/* {languagesAnswers?.map((language) => (
+            {languagesAnswers.map((language) => (
                 <div key={language.name}>
                     <LanguageCard languageToSearch={language} />
                 </div>
-            ))} */}
+            ))}
         </div>
     )
 }
