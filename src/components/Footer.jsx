@@ -29,7 +29,7 @@ const Footer = () => {
                         </div>
                         <div className="d-flex flex-column gap-2">
                             <a href="https://twitter.com/learner_14">
-                                <i class="fa-brands fa-twitter buttons-footer"></i>
+                                <i className="fa-brands fa-twitter buttons-footer"></i>
                             </a>
                             <a href="mailto:pldle.jdgc14@gmail.com">
                                 <i className="fa-solid fa-envelope buttons-footer"></i>

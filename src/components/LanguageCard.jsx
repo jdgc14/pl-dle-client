@@ -67,7 +67,14 @@ const LanguageCard = ({ languageSelectByUser, languageRandom }) => {
     return (
         <div className="d-flex col-11 mt-5 gap-2 mx-auto">
             <section className="col-3 col-md-1 my-auto">
-                <img src={languageSelectByUser.img} style={{ width: '50px' }} />
+                <img
+                    src={languageSelectByUser.img}
+                    style={{
+                        width: '50px',
+                        height: '50px',
+                        objectFit: 'contain',
+                    }}
+                />
             </section>
             <section
                 className={`col-3 col-md-1 bg-coincidence-${validations.typed} rounded d-grid p-2 card-languages`}

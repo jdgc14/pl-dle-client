@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import programmingLanguages from '../../programmingLanguages'
+import ColorsIndicator from './ColorsIndicator'
 import InputLanguage from './InputLanguage'
 import LanguageCard from './LanguageCard'
 
@@ -11,7 +12,7 @@ const Home = () => {
     const [languagesAnswers, setLanguagesAnswers] = useState([])
 
     const addLanguage = (language) => {
-        setLanguagesAnswers([...languagesAnswers, language])
+        setLanguagesAnswers([language, ...languagesAnswers])
     }
 
     const selectRandomLanguage = (arrayLanguages) => {
@@ -29,7 +30,14 @@ const Home = () => {
                 {programmingLanguages.map((language) => (
                     <div key={language.name} className="col-1 text-center">
                         <h6>{language.name}</h6>
-                        <img src={language.img} style={{ width: '70px' }} />
+                        <img
+                            src={language.img}
+                            style={{
+                                width: '70px',
+                                height: '80px',
+                                objectFit: 'contain',
+                            }}
+                        />
                     </div>
                 ))}
             </div>
@@ -41,6 +49,7 @@ const Home = () => {
                 programmingLanguages={programmingLanguages}
                 addLanguage={addLanguage}
             />
+            <ColorsIndicator />
             {/* <LanguageCard
                 languageRandom={languageRandom}
                 languageSelectByUser={languageRandom}
