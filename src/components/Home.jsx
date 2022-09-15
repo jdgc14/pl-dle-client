@@ -1,25 +1,59 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { useState } from 'react'
-import programmingLanguages from '../../../programmingLanguages'
+import programmingLanguages from '../../programmingLanguages'
+import InputLanguage from './InputLanguage'
+import LanguageCard from './LanguageCard'
 
 const Home = () => {
-    const [languageUser, setLanguageUser] = useState('')
+    const [languageRandom, setLanguageRandom] = useState({})
+
+    const [languageSelectedByUser, setLanguageSelectedByUser] = useState({})
+
+    const [languagesAnswers, setLanguagesAnswers] = useState([])
+
+    const addLanguage = (language) => {
+        setLanguagesAnswers([...languagesAnswers, language])
+    }
+
+    const selectRandomLanguage = (arrayLanguages) => {
+        const randomIndex = Math.floor(Math.random() * arrayLanguages.length)
+        setLanguageRandom(arrayLanguages[randomIndex])
+    }
+
+    useEffect(() => {
+        selectRandomLanguage(programmingLanguages)
+    }, [])
 
     return (
-        <div>
-            {programmingLanguages.map((language) => (
+        <div className="text-center">
+            <div className="d-flex justify-content-center">
+                {programmingLanguages.map((language) => (
+                    <div key={language.name} className="col-1 text-center">
+                        <h6>{language.name}</h6>
+                        <img src={language.img} style={{ width: '70px' }} />
+                    </div>
+                ))}
+            </div>
+            <h2>Type a programming languages to begin.</h2>
+
+            <InputLanguage
+                programmingLanguages={programmingLanguages}
+                setLanguageSelected={setLanguageSelectedByUser}
+                addLanguage={addLanguage}
+            />
+            <LanguageCard
+                languageRandom={languageRandom}
+                languageSelectByUser={languageRandom}
+            />
+            {languagesAnswers.map((language) => (
                 <div key={language.name}>
-                    <h3>{language.name}</h3>
-                    <img src={language.img} style={{ width: '50px' }} />
+                    <LanguageCard
+                        languageSelectByUser={language}
+                        languageRandom={languageRandom}
+                    />
                 </div>
             ))}
-            <form action="">
-                <input
-                    type="text"
-                    value={languageUser}
-                    onChange={(e) => setLanguageUser(e.target.value)}
-                />
-            </form>
         </div>
     )
 }
