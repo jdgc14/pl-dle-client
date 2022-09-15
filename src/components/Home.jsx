@@ -6,9 +6,9 @@ import InputLanguage from './InputLanguage'
 import LanguageCard from './LanguageCard'
 
 const Home = () => {
-    const [languageToSearch, setLanguageToSearch] = useState({})
+    const [languageRandom, setLanguageRandom] = useState({})
 
-    const [languageSelected, setLanguageSelected] = useState({})
+    const [languageSelectedByUser, setLanguageSelectedByUser] = useState({})
 
     const [languagesAnswers, setLanguagesAnswers] = useState([])
 
@@ -16,11 +16,9 @@ const Home = () => {
         setLanguagesAnswers([...languagesAnswers, language])
     }
 
-    console.log(languagesAnswers)
-
     const selectRandomLanguage = (arrayLanguages) => {
         const randomIndex = Math.floor(Math.random() * arrayLanguages.length)
-        setLanguageToSearch(arrayLanguages[randomIndex])
+        setLanguageRandom(arrayLanguages[randomIndex])
     }
 
     useEffect(() => {
@@ -31,9 +29,9 @@ const Home = () => {
         <div className="text-center">
             <div className="d-flex justify-content-center">
                 {programmingLanguages.map((language) => (
-                    <div key={language.name} className="col-2 text-center">
-                        <h3>{language.name}</h3>
-                        <img src={language.img} style={{ width: '50px' }} />
+                    <div key={language.name} className="col-1 text-center">
+                        <h6>{language.name}</h6>
+                        <img src={language.img} style={{ width: '70px' }} />
                     </div>
                 ))}
             </div>
@@ -41,13 +39,19 @@ const Home = () => {
 
             <InputLanguage
                 programmingLanguages={programmingLanguages}
-                setLanguageSelected={setLanguageSelected}
+                setLanguageSelected={setLanguageSelectedByUser}
                 addLanguage={addLanguage}
             />
-            <LanguageCard languageToSearch={languageToSearch} />
+            <LanguageCard
+                languageRandom={languageRandom}
+                languageSelectByUser={languageRandom}
+            />
             {languagesAnswers.map((language) => (
                 <div key={language.name}>
-                    <LanguageCard languageToSearch={language} />
+                    <LanguageCard
+                        languageSelectByUser={language}
+                        languageRandom={languageRandom}
+                    />
                 </div>
             ))}
         </div>

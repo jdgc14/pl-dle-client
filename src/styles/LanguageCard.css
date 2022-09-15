@@ -8,11 +8,11 @@
     color: black;
 }
 
-.bg-wrong {
+.bg-coincidence-false {
     background-color: rgba(var(--bs-danger-rgb));
 }
 
-.bg-coincidence {
+.bg-coincidence-true {
     background-color: rgba(var(--bs-success-rgb));
 }
 
