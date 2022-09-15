@@ -55,3 +55,8 @@
         color: var(--color-1)
     }
 }
+
+.link-python {
+    text-decoration: none;
+    color: white;
+}
