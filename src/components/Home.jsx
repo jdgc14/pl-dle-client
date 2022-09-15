@@ -8,8 +8,6 @@ import LanguageCard from './LanguageCard'
 const Home = () => {
     const [languageRandom, setLanguageRandom] = useState({})
 
-    const [languageSelectedByUser, setLanguageSelectedByUser] = useState({})
-
     const [languagesAnswers, setLanguagesAnswers] = useState([])
 
     const addLanguage = (language) => {
@@ -39,13 +37,12 @@ const Home = () => {
 
             <InputLanguage
                 programmingLanguages={programmingLanguages}
-                setLanguageSelected={setLanguageSelectedByUser}
                 addLanguage={addLanguage}
             />
-            <LanguageCard
+            {/* <LanguageCard
                 languageRandom={languageRandom}
                 languageSelectByUser={languageRandom}
-            />
+            /> */}
             {languagesAnswers.map((language) => (
                 <div key={language.name}>
                     <LanguageCard
