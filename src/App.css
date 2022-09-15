@@ -1,9 +1,3 @@
 .App {
   min-height: 100vh;
 }
-
-.scroll {
-  display: flex;
-  overflow-y: scroll;
-  /* scrollbar-width: none; */
-}

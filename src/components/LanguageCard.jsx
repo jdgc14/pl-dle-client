@@ -65,7 +65,7 @@ const LanguageCard = ({ languageSelectByUser, languageRandom }) => {
     }
 
     return (
-        <div className="d-flex col-11 mt-5 gap-2 mx-auto scroll">
+        <div className="d-flex col-11 mt-5 gap-2 mx-auto">
             <section className="col-3 col-md-1 my-auto">
                 <img src={languageSelectByUser.img} style={{ width: '50px' }} />
             </section>
