@@ -25,14 +25,17 @@ const InputLanguage = ({ programmingLanguages, addLanguage }) => {
         setIsErrorInput(false)
 
         addLanguage(language)
+        setLanguageInput('')
     }
     return (
-        <form onSubmit={submit}>
+        <form onSubmit={submit} className="d-flex col-6 mx-auto my-5">
             <input
                 type="text"
                 value={languageInput}
                 onChange={(e) => setLanguageInput(e.target.value)}
                 list="languagesName"
+                className="form-control d-inline"
+                placeholder="Type any language..."
             />
             {/* To suggest the allowed options to the user 
                     To Do:
@@ -46,7 +49,7 @@ const InputLanguage = ({ programmingLanguages, addLanguage }) => {
                     </option>
                 ))}
             </datalist>
-            <button>
+            <button className="btn btn-primary">
                 <i className="fa-solid fa-play"></i>
             </button>
             {isErrorInput && (

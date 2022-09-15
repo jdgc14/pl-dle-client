@@ -31,7 +31,7 @@
 .bg-coincidence-minus {
     background-color: rgba(var(--bs-danger-rgb));
     background-image: url('https://www.pngmart.com/files/3/Down-Arrow-PNG-Image.png');
-    background-size: contain;
+    background-size: 50%;
     background-repeat: no-repeat;
     background-position: bottom;
 
@@ -40,7 +40,7 @@
 .bg-coincidence-more {
     background-color: rgba(var(--bs-danger-rgb));
     background-image: url('https://www.pngmart.com/files/3/Up-Arrow-PNG-Picture.png');
-    background-size: contain;
+    background-size: 50%;
     background-repeat: no-repeat;
     background-position: top;
 }

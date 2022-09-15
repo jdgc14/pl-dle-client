@@ -24,7 +24,7 @@ const Home = () => {
     }, [])
 
     return (
-        <div className="text-center">
+        <div className="text-center" style={{ minHeight: '80vh' }}>
             <div className="d-flex justify-content-center">
                 {programmingLanguages.map((language) => (
                     <div key={language.name} className="col-1 text-center">
@@ -33,7 +33,9 @@ const Home = () => {
                     </div>
                 ))}
             </div>
-            <h2>Type a programming languages to begin.</h2>
+            {languagesAnswers.length === 0 && (
+                <h2>Type a programming languages to begin.</h2>
+            )}
 
             <InputLanguage
                 programmingLanguages={programmingLanguages}

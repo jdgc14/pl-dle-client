@@ -1,0 +1,9 @@
+.buttons-footer {
+    color: #ffffff;
+    font-size: 1.5rem;
+    transition: 0.5s;
+}
+
+.buttons-footer:hover {
+    font-size: 1.8rem;
+}

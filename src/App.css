@@ -1,3 +1,9 @@
 .App {
   min-height: 100vh;
+  /* background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://media4.giphy.com/media/citBl9yPwnUOs/giphy.gif?cid=790b76115b693720368e79612e30f65dbe8d5dae8efa672a&rid=giphy.gif'); */
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://c.tenor.com/qJ5evVs-_uUAAAAC/coding.gif');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
 }
