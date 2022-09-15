@@ -1,18 +1,15 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import LanguageCard from './LanguageCard'
+import '../styles/CongratulationsPage.css'
 
-const CongratulationsPage = ({ languageRandom }) => {
-    const navigate = useNavigate()
-
-    const goToHome = () => {
-        navigate('/')
-    }
-
+const CongratulationsPage = () => {
     return (
         <div>
-            <h2>Congratulations</h2>
-            {/* <button onClick={goToHome}>Try Again</button> */}
+            <h3 class="title">
+                <span class="title-word title-word-1">Con</span>
+                <span class="title-word title-word-2">gra</span>
+                <span class="title-word title-word-3">tula</span>
+                <span class="title-word title-word-4">tions!</span>
+            </h3>
         </div>
     )
 }
