@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const InputLanguage = ({ programmingLanguages, addLanguage }) => {
+const InputLanguage = ({ programmingLanguagesData, addLanguage }) => {
     const [languageInput, setLanguageInput] = useState('')
 
     const [isErrorInput, setIsErrorInput] = useState(false)
@@ -8,19 +8,19 @@ const InputLanguage = ({ programmingLanguages, addLanguage }) => {
     const submit = (e) => {
         e.preventDefault()
 
-        const languageIndex = programmingLanguages.indexOf(
-            programmingLanguages.find(
+        const languageIndex = programmingLanguagesData.indexOf(
+            programmingLanguagesData.find(
                 (language) => language.name === languageInput
             )
         )
 
-        const language = programmingLanguages[languageIndex]
+        const language = programmingLanguagesData[languageIndex]
 
         if (!language) {
             return setIsErrorInput(true)
         }
 
-        programmingLanguages.splice(languageIndex, 1)
+        programmingLanguagesData.splice(languageIndex, 1)
 
         setIsErrorInput(false)
 
@@ -48,7 +48,7 @@ const InputLanguage = ({ programmingLanguages, addLanguage }) => {
                 */}
 
                 <datalist id="languagesName">
-                    {programmingLanguages.map((language) => (
+                    {programmingLanguagesData.map((language) => (
                         <option key={language.name} value={language.name}>
                             {language.name}
                         </option>
