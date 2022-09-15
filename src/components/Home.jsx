@@ -4,9 +4,12 @@ import ColorsIndicator from './ColorsIndicator'
 import InputLanguage from './InputLanguage'
 import LanguageCard from './LanguageCard'
 import programmingLanguages from '../../programmingLanguages'
+import CongratulationsPage from './CongratulationsPage'
 
 const Home = () => {
     const [languageRandom, setLanguageRandom] = useState({})
+
+    const [isCompleted, setIsCompleted] = useState(false)
 
     const selectRandomLanguage = (arrayLanguages) => {
         const randomIndex = Math.floor(Math.random() * arrayLanguages.length)
@@ -29,21 +32,26 @@ const Home = () => {
 
     const checkLanguageIsFound = (language, languageRandom) => {
         if (language.name === languageRandom.name) {
-            navigate('/congratulations')
+            setIsCompleted(true)
         }
     }
 
     return (
-        <div className="container text-center" style={{ minHeight: '80vh' }}>
+        <div className="text-center" style={{ minHeight: '80vh' }}>
             {languagesAnswers.length === 0 && (
                 <h2>Type a programming languages to begin.</h2>
             )}
-
-            <InputLanguage
-                programmingLanguages={programmingLanguages}
-                addLanguage={addLanguage}
-            />
-            <ColorsIndicator />
+            {isCompleted ? (
+                <CongratulationsPage />
+            ) : (
+                <>
+                    <InputLanguage
+                        programmingLanguages={programmingLanguages}
+                        addLanguage={addLanguage}
+                    />
+                    <ColorsIndicator />
+                </>
+            )}
 
             <div
                 className="bg-black bg-opacity-50 col-11 mx-auto rounded"

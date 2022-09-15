@@ -7,3 +7,11 @@
   background-size: contain;
   background-position: center center;
 }
+
+@media only screen and (max-width: 768px) {
+  .scroll {
+    display: flex;
+    overflow-y: scroll;
+    /* scrollbar-width: none; */
+  }
+}

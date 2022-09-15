@@ -13,17 +13,18 @@ const ColorsIndicator = () => {
                     </div>
                     <div>
                         <div className="color-card bg-coincidence-1"></div>
-                        <small>One Coincidence</small>
+                        <small>One correct</small>
                     </div>
                 </div>
                 <div className="mx-auto">
                     <div>
-                        <div className="color-card bg-coincidence-2"></div>
-                        <small>Two Coincidences</small>
-                    </div>
-                    <div>
                         <div className="color-card bg-coincidence-false"></div>
                         <small>Incorrect</small>
+                    </div>
+
+                    <div>
+                        <div className="color-card bg-coincidence-2"></div>
+                        <small>Two correct</small>
                     </div>
                 </div>
             </div>
