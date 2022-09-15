@@ -1,10 +1,6 @@
 import React, { useState } from 'react'
 
-const InputLanguage = ({
-    programmingLanguages,
-    setLanguageSelected,
-    addLanguage,
-}) => {
+const InputLanguage = ({ programmingLanguages, addLanguage }) => {
     const [languageInput, setLanguageInput] = useState('')
 
     const [isErrorInput, setIsErrorInput] = useState(false)
@@ -27,8 +23,6 @@ const InputLanguage = ({
         programmingLanguages.splice(languageIndex, 1)
 
         setIsErrorInput(false)
-
-        setLanguageSelected(language)
 
         addLanguage(language)
     }

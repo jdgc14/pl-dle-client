@@ -16,14 +16,31 @@
     background-color: rgba(var(--bs-success-rgb));
 }
 
-.bg-coincidence-1 {
+/* .bg-coincidence-1 {
     background-color: #ff7536;
-}
+} */
 
-.bg-coincidence-2 {
+.bg-coincidence-1 {
     background-color: rgba(252, 217, 61, 0.9);
 }
 
-.bg-coincidence-3 {
+.bg-coincidence-2 {
     background-color: rgba(189, 253, 94, 0.7);
+}
+
+.bg-coincidence-minus {
+    background-color: rgba(var(--bs-danger-rgb));
+    background-image: url('https://www.pngmart.com/files/3/Down-Arrow-PNG-Image.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+
+}
+
+.bg-coincidence-more {
+    background-color: rgba(var(--bs-danger-rgb));
+    background-image: url('https://www.pngmart.com/files/3/Up-Arrow-PNG-Picture.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
 }
