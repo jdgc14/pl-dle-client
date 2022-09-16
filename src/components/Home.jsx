@@ -4,6 +4,7 @@ import InputLanguage from './InputLanguage'
 import LanguageCard from './LanguageCard'
 import programmingLanguages from '../../programmingLanguages'
 import CongratulationsPage from './CongratulationsPage'
+import LanguagesToDisplay from './LanguagesToDisplay'
 
 const Home = () => {
     // This useState use slice method to get a copy of a array and not a referency
@@ -96,6 +97,7 @@ const Home = () => {
                     </div>
                 ))}
             </div>
+            <LanguagesToDisplay programmingLanguages={programmingLanguages} />
         </div>
     )
 }
