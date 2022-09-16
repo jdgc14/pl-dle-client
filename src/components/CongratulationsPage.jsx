@@ -16,7 +16,11 @@ const CongratulationsPage = () => {
                     pldle.jdgc14@gmail.com. This is a first version, more
                     funcionality is comming!🥳🥳 <br />
                     Don't forget to visit{' '}
-                    <a href="https://pybaq.co/" className="link-python">
+                    <a
+                        href="https://pybaq.co/"
+                        className="link-python"
+                        target={'_blank'}
+                    >
                         Python Barranquilla page 💛💙
                     </a>
                 </small>
